@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Laravel 5.6 アシスタント向けFastMCPツール定義
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    # これは実際のAPIエンドポイントではなく、FastMCPのツール定義を表します
+    LaravelAssistantTool:
+      type: object
+      properties:
+        name:
+          type: string
+          example: laravel_5_6_assistant
+        description:
+          type: string
+          example: Laravel 5.6のコーディング支援を提供するAIエージェント。質問への回答、コードのデバッグ、コード例の提供ができます。
+        input_schema:
+          type: object
+          properties:
+            query:
+              type: string
+              description: ユーザーの自然言語による質問またはコードスニペット。
+          required:
+            - query
+        output_schema:
+          type: object
+          properties:
+            response:
+              type: string
+              description: テキストやコードを含むエージェントの回答。
+            sources:
+              type: array
+              items:
+                type: string
+                format: uri
+              description: 応答を生成するために使用されたドキュメントURLのリスト。
