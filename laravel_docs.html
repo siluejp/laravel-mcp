@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+
+<title>Installation - Laravel 5.6 - The PHP Framework For Web Artisans</title>
+
+<link rel="canonical" href="https://laravel.com/docs/12.x/installation">
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="Installation - Laravel 5.6 - The PHP Framework For Web Artisans">
+<meta name="description" content="Laravel is a PHP web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://laravel.com/">
+<meta property="og:title" content="Installation - Laravel 5.6 - The PHP Framework For Web Artisans">
+<meta property="og:description" content="Laravel is a PHP web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.">
+<meta property="og:image" content="https://laravel.com/images/og/laravel-docs.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://laravel.com/">
+<meta property="twitter:title" content="Installation - Laravel 5.6 - The PHP Framework For Web Artisans">
+<meta property="twitter:description" content="Laravel is a PHP web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.">
+<meta property="twitter:image" content="https://laravel.com/images/og/laravel-docs.png">
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="/img/favicon/site.webmanifest">
+<link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+<link rel="shortcut icon" href="/img/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#ff2d20">
+<meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+
+<link rel="preload" href="/fonts/InstrumentSans.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preconnect" href="https://E3MIRNPJH5-dsn.algolia.net" crossorigin />
+
+
+<link rel="preload" as="style" href="https://laravel.com/build/assets/app-CyiCm_gM.css" /><link rel="modulepreload" href="https://laravel.com/build/assets/app-AZeYF66w.js" /><link rel="modulepreload" href="https://laravel.com/build/assets/mediaQuery-Bm25Hv93.js" /><link rel="modulepreload" href="https://laravel.com/build/assets/module.esm-B6lOy9ag.js" /><link rel="modulepreload" href="https://laravel.com/build/assets/docs-xlmN8wpX.js" /><link rel="modulepreload" href="https://laravel.com/build/assets/theme-switcher-D86AzGB8.js" /><link rel="stylesheet" href="https://laravel.com/build/assets/app-CyiCm_gM.css" data-navigate-track="reload" /><script type="module" src="https://laravel.com/build/assets/app-AZeYF66w.js" data-navigate-track="reload"></script><script type="module" src="https://laravel.com/build/assets/docs-xlmN8wpX.js" data-navigate-track="reload"></script>
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="DVMEKBYF" defer></script>
+    <!-- / Fathom -->
+
+    <!-- Clearbit -->
+    <script async src="https://tag.clearbitscripts.com/v1/pk_97d2bf69f817feb07be42fcda1460119/tags.js" referrerpolicy="strict-origin-when-cross-origin"></script>
+
+
+
+<script>
+    const alwaysLightMode = false;
+    const alwaysDarkMode = false;
+    const algolia_app_id = 'E3MIRNPJH5';
+    const algolia_search_key = '1fa3a8fec06eb1858d6ca137211225c0';
+    const version = '5.6';
+
+    if (alwaysDarkMode) {
+        document.documentElement.classList.add("dark");
+        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("color-theme", "dark");
+    } else if (!alwaysLightMode) {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const hasNoThemeOrIsSystemTheme = !localStorage.theme || localStorage.theme === 'system';
+
+        if (localStorage.theme === 'dark' || (hasNoThemeOrIsSystemTheme && prefersDark)) {
+            document.documentElement.classList.add("dark");
+            document.documentElement.setAttribute("data-theme", "dark");
+            document.documentElement.setAttribute("color-theme", "dark");
+        }
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Set a CSS variable for the viewport width for the divider component
+        document.documentElement.style.setProperty('--viewport-width', (document.body.clientWidth || 0)+'px');
+    });
+
+    window.addEventListener('resize', function () {
+        document.documentElement.style.setProperty('--viewport-width', (document.body.clientWidth || 0)+'px');
+    }, { passive: true });
+</script>
+
+            </head>
+    <body class="font-sans antialiased text-sand-light-12 bg-sand-light-1 dark:bg-sand-dark-1">
+        <a id="site-banner" class="group"
+   href="https://laravel.com/blog/everything-you-need-to-know-about-the-new-forge-laravel-vps">
+    <span
+         class="bg-sand-light-12 z-10 after:bg-sand-light-7 dark:after:bg-sand-dark-6 group-hover:bg-sand-light-12/90 relative flex items-center justify-center gap-x-6 px-6 py-1.5 after:absolute after:inset-x-0 after:bottom-0 after:h-px sm:px-3.5 sm:before:flex-1 transition-colors">
+        <span class="text-pretty text-sm/6 text-white transition duration-100">
+            Manage your servers with freedom and control. Learn more about the new Forge <span
+                class="inline-block transition-transform duration-100 group-hover:translate-x-1">&rarr;</span>
+        </span>
+        <span class="flex flex-1 justify-end"></span>
+    </span>
+</a>
+
+        <div class="xl:px-0 mx-auto xl:max-w-[1400px] w-full max-w-full">
+            <div class="relative xl:border-l xl:mx-auto bg-sand-light-1 dark:bg-sand-dark-1 xl:border-sand-light-7 xl:dark:border-sand-dark-6">
+                <div id="nav-trigger" class="absolute left-0 top-32"></div>
+
+<nav class="sticky top-0 z-99 px-4 xl:px-16 py-8 h-(--popover-top-offset) dark:bg-sand-dark-1 transition-transform duration-300 bg-sand-light-1 border-b border-transparent sticky-nav docs-nav">
+    <div class="grid grid-cols-12 gap-4 lg:gap-6 xl:gap-x-10 relative items-center h-full overflow-hidden">
+    <ul class="flex items-start col-span-3 space-x-8 font-medium ">
+            <li class="w-20 transition-transform duration-300 ease-in-out mr-18 text-laravel-red" id="nav-left">
+                <a href="https://laravel.com" class="flex items-center w-20 aspect-[80/23]">
+                    <svg class="w-full h-full"
+    width="1280"
+    height="308"
+    viewBox="0 0 1280 308"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M50.2753 0H0V308.689H144.713V263.27H50.2753V0Z"
+        fill="currentColor"
+    />
+    <path
+        d="M322.209 130.973C315.796 120.684 306.688 112.602 294.883 106.718C283.081 100.84 271.201 97.8969 259.253 97.8969C243.798 97.8969 229.665 100.764 216.843 106.496C204.014 112.228 193.015 120.099 183.834 130.091C174.654 140.088 167.51 151.628 162.412 164.706C157.308 177.792 154.761 191.54 154.761 205.94C154.761 220.645 157.308 234.457 162.412 247.39C167.508 260.332 174.652 271.796 183.834 281.788C193.015 291.785 204.017 299.647 216.843 305.379C229.665 311.111 243.798 313.978 259.253 313.978C271.201 313.978 283.081 311.038 294.883 305.159C306.688 299.282 315.796 291.197 322.209 280.904V308.685H369.865V103.186H322.209V130.973ZM317.837 231.076C314.922 239.016 310.841 245.925 305.598 251.804C300.35 257.687 294.009 262.389 286.579 265.917C279.146 269.445 270.905 271.208 261.875 271.208C252.837 271.208 244.676 269.445 237.391 265.917C230.104 262.389 223.839 257.687 218.593 251.804C213.345 245.925 209.335 239.016 206.57 231.076C203.794 223.138 202.417 214.759 202.417 205.942C202.417 197.12 203.794 188.742 206.57 180.804C209.335 172.866 213.345 165.961 218.593 160.078C223.839 154.201 230.102 149.493 237.391 145.965C244.676 142.437 252.837 140.674 261.875 140.674C270.908 140.674 279.146 142.437 286.579 145.965C294.009 149.493 300.35 154.199 305.598 160.078C310.844 165.961 314.922 172.866 317.837 180.804C320.748 188.742 322.209 197.12 322.209 205.942C322.209 214.759 320.748 223.138 317.837 231.076Z"
+        fill="currentColor"
+    />
+    <path
+        d="M709.568 130.973C703.155 120.684 694.047 112.602 682.242 106.718C670.44 100.84 658.56 97.8969 646.612 97.8969C631.157 97.8969 617.024 100.764 604.202 106.496C591.373 112.228 580.374 120.099 571.193 130.091C562.013 140.088 554.869 151.628 549.771 164.706C544.666 177.792 542.12 191.54 542.12 205.94C542.12 220.645 544.666 234.457 549.771 247.39C554.867 260.332 562.01 271.796 571.193 281.788C580.374 291.785 591.375 299.647 604.202 305.379C617.024 311.111 631.157 313.978 646.612 313.978C658.56 313.978 670.44 311.038 682.242 305.159C694.047 299.282 703.155 291.197 709.568 280.904V308.685H757.224V103.186H709.568V130.973ZM705.198 231.076C702.283 239.016 698.202 245.925 692.959 251.804C687.711 257.687 681.37 262.389 673.94 265.917C666.507 269.445 658.266 271.208 649.236 271.208C640.198 271.208 632.037 269.445 624.752 265.917C617.465 262.389 611.2 257.687 605.954 251.804C600.706 245.925 596.696 239.016 593.931 231.076C591.155 223.138 589.778 214.759 589.778 205.942C589.778 197.12 591.155 188.742 593.931 180.804C596.696 172.866 600.706 165.961 605.954 160.078C611.2 154.201 617.463 149.493 624.752 145.965C632.037 142.437 640.198 140.674 649.236 140.674C658.269 140.674 666.507 142.437 673.94 145.965C681.37 149.493 687.711 154.199 692.959 160.078C698.205 165.961 702.283 172.866 705.198 180.804C708.109 188.742 709.57 197.12 709.57 205.942C709.568 214.759 708.107 223.138 705.198 231.076Z"
+        fill="currentColor"
+    />
+    <path
+        d="M1280 1.12315e-05H1232.35V308.689H1280V1.12315e-05Z"
+        fill="currentColor"
+    />
+    <path
+        d="M407.466 308.689H455.117V150.486H536.876V103.192H407.466V308.689Z"
+        fill="currentColor"
+    />
+    <path
+        d="M948.281 103.192L888.386 260.557L828.489 103.192H780.224L858.441 308.689H918.331L996.546 103.192H948.281Z"
+        fill="currentColor"
+    />
+    <path
+        d="M1100.48 97.908C1042.13 97.908 995.937 146.279 995.937 205.944C995.937 271.9 1040.64 313.98 1106.59 313.98C1143.5 313.98 1167.06 299.745 1195.85 268.746L1163.66 243.621C1163.64 243.646 1139.36 275.802 1103.1 275.802C1060.96 275.802 1043.22 241.533 1043.22 223.803H1201.32C1209.62 155.913 1165.37 97.908 1100.48 97.908ZM1043.35 188.085C1043.71 184.13 1049.2 136.086 1100.1 136.086C1151.01 136.086 1157.19 184.123 1157.55 188.085H1043.35Z"
+        fill="currentColor"
+    />
+</svg>                    <span class="sr-only">Home</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="absolute top-0 flex items-center p-2 cursor-pointer right-9 lg:right-auto lg:top-auto lg:relative lg:col-span-6 lg:w-full lg:hover:bg-sand-light-4 lg:dark:hover:bg-sand-dark-4 rounded-xs lg:dark:bg-sand-dark-5 lg:bg-sand-light-3 text-sand-light-9-alpha-45 dark:text-sand-dark-11">
+            <svg class="w-6 h-6 lg:w-5 lg:h-5 lg:mr-2 shrink-0"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <g>
+        <path
+            d="M15.8333 15.8333L13.0523 13.0524M13.0523 13.0524C13.9943 12.1104 14.5769 10.8092 14.5769 9.3718C14.5769 6.49708 12.2465 4.16667 9.37176 4.16667C6.49704 4.16667 4.16663 6.49708 4.16663 9.3718C4.16663 12.2465 6.49704 14.5769 9.37176 14.5769C10.8091 14.5769 12.1104 13.9943 13.0523 13.0524Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    </g>
+</svg>            <div class="grow">
+                <div id="docsearch" class="absolute inset-0 lg:*:px-9 lg:*:py-1.5 *:absolute *:inset-0 text-base bg-transparent text-sand-light-9-alpha-45/70 dark:text-sand-dark-10"></div>
+            </div>
+            <span class="ml-2 hidden lg:block mr-1.5 text-sm font-medium shrink-0 text-sand-light-9 dark:text-sand-dark-10">⌘K</span>
+        </div>
+
+        <div class="flex items-center justify-end col-span-9 gap-4 lg:col-span-3 dark:text-sand-dark-12">
+            <select
+    x-data
+    aria-label="Laravel version"
+    @change="window.location = $event.target.value"
+    class="hidden text-sm py-1.5 px-3 bg-sand-light-1 dark:bg-sand-dark-1 border-0 whitespace-nowrap lg:block"
+>
+            <option
+                        value="https://laravel.com/docs/master">
+                Version Master
+        </option>
+            <option
+                        value="https://laravel.com/docs/12.x">
+                Version 12.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/11.x">
+                Version 11.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/10.x">
+                Version 10.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/9.x">
+                Version 9.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/8.x">
+                Version 8.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/7.x">
+                Version 7.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/6.x">
+                Version 6.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.8">
+                Version 5.8
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.7">
+                Version 5.7
+        </option>
+            <option
+            selected            value="https://laravel.com/docs/5.6">
+                Version 5.6
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.5">
+                Version 5.5
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.4">
+                Version 5.4
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.3">
+                Version 5.3
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.2">
+                Version 5.2
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.1">
+                Version 5.1
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.0">
+                Version 5.0
+        </option>
+            <option
+                        value="https://laravel.com/docs/4.2">
+                Version 4.2
+        </option>
+    </select>
+
+            <select
+    x-data
+    aria-label="Laravel version"
+    @change="window.location = $event.target.value"
+    class="text-sm py-1.5 px-3 bg-sand-light-1 dark:bg-sand-dark-1 border-0 whitespace-nowrap lg:hidden"
+>
+            <option
+                        value="https://laravel.com/docs/master">
+                vMaster
+        </option>
+            <option
+                        value="https://laravel.com/docs/12.x">
+                v12.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/11.x">
+                v11.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/10.x">
+                v10.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/9.x">
+                v9.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/8.x">
+                v8.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/7.x">
+                v7.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/6.x">
+                v6.x
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.8">
+                v5.8
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.7">
+                v5.7
+        </option>
+            <option
+            selected            value="https://laravel.com/docs/5.6">
+                v5.6
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.5">
+                v5.5
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.4">
+                v5.4
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.3">
+                v5.3
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.2">
+                v5.2
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.1">
+                v5.1
+        </option>
+            <option
+                        value="https://laravel.com/docs/5.0">
+                v5.0
+        </option>
+            <option
+                        value="https://laravel.com/docs/4.2">
+                v4.2
+        </option>
+    </select>
+
+            <div class="hidden lg:block">
+                <div class="flex items-center size-8 group" x-data="themeSwitcher" x-on:switch-theme.window="saveAndUpdate($event.detail)">
+    <button id="header__sun" @click="toSystemMode" title="Switch to system theme" class="size-8 cursor-default flex items-center justify-center text-sand-light-12 group-hover:text-sand-light-10 dark:text-sand-dark-12 dark:group-hover:text-sand-dark-10 transition duration-100 focus:outline-none focus:shadow-outline">
+        <svg class="size-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.0002 3.29071V1.76746M5.8418 18.1585L4.7647 19.2356M12.0002 22.2326V20.7093M19.2357 4.76456L18.1586 5.84166M20.7095 12H22.2327M18.1586 18.1584L19.2357 19.2355M1.76758 12H3.29083M4.76462 4.7645L5.84173 5.8416M15.7123 8.2877C17.7626 10.338 17.7626 13.6621 15.7123 15.7123C13.6621 17.7626 10.338 17.7626 8.2877 15.7123C6.23745 13.6621 6.23745 10.338 8.2877 8.2877C10.338 6.23745 13.6621 6.23745 15.7123 8.2877Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>    </button>
+    <button id="header__moon" @click="toLightMode" title="Switch to light mode" class="size-8 cursor-default flex items-center justify-center text-sand-light-12 group-hover:text-sand-light-10 dark:text-sand-dark-12 dark:group-hover:text-sand-dark-10 transition duration-100 focus:outline-none focus:shadow-outline">
+        <svg class="size-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.2496 14.1987C19.5326 14.3951 18.7782 14.5 18 14.5C13.3056 14.5 9.5 10.6944 9.5 5.99999C9.5 5.22185 9.60487 4.4674 9.80124 3.75043C6.15452 4.72095 3.46777 8.04578 3.46777 11.9981C3.46777 16.7114 7.28864 20.5323 12.0019 20.5323C15.9543 20.5323 19.2791 17.8455 20.2496 14.1987ZM20.5196 12.5328C19.7378 12.8346 18.8882 13 18 13C14.134 13 11 9.86598 11 5.99999C11 5.11181 11.1654 4.26226 11.4671 3.48047C11.6142 3.09951 11.7935 2.73464 12.0019 2.38923C12.0888 2.24526 12.1807 2.10466 12.2774 1.9677C12.1858 1.96523 12.094 1.96399 12.0019 1.96399C11.4758 1.96399 10.9592 2.00448 10.455 2.0825C5.64774 2.8264 1.96777 6.98251 1.96777 11.9981C1.96777 17.5398 6.46021 22.0323 12.0019 22.0323C17.0176 22.0323 21.1737 18.3523 21.9176 13.545C21.9956 13.0408 22.0361 12.5242 22.0361 11.9981C22.0361 11.906 22.0348 11.8141 22.0323 11.7226C21.8953 11.8193 21.7547 11.9112 21.6107 11.9981C21.2653 12.2065 20.9005 12.3858 20.5196 12.5328Z" fill="currentColor"/>
+<path d="M16.3333 5.33333L17.5 3L18.6667 5.33333L21 6.5L18.6667 7.66667L17.5 10L16.3333 7.66667L14 6.5L16.3333 5.33333Z" fill="currentColor"/>
+</svg>    </button>
+    <button id="header__indeterminate" @click="toDarkMode" title="Switch to dark mode" class="size-8 cursor-default flex items-center justify-center text-sand-light-12 group-hover:text-sand-light-10 dark:text-sand-dark-12 dark:group-hover:text-sand-dark-10 transition duration-100 focus:outline-none focus:shadow-outline">
+        <svg class="size-6 dark:hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 12C20.5 16.6944 16.6944 20.5 12 20.5V3.5C16.6944 3.5 20.5 7.30558 20.5 12ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" />
+</svg>        <svg class="size-6 hidden dark:block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 12C20.5 16.6944 16.6944 20.5 12 20.5V3.5C16.6944 3.5 20.5 7.30558 20.5 12ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor"/>
+</svg>    </button>
+</div>
+            </div>
+
+            <button popovertarget="docs-nav-mobile" class="cursor-pointer ml-13 lg:hidden">
+                <svg class="w-6 h-6 text-sand-light-9 hamburger-menu"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M2.75 7.25H21.25M2.75 16.75H21.25"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="square"
+    />
+</svg>                <svg class="w-6 h-6 text-sand-light-9 close-menu"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M4.75 4.75L19.25 19.25M19.25 4.75L4.75 19.25"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="square"
+    />
+</svg>            </button>
+        </div>
+</div>
+</nav>
+
+<div popover id="docs-nav-mobile" class="fixed w-full bg-transparent main-nav-popover top-(--popover-top-offset)">
+    <div class="px-5 py-8 h-[calc(100dvh-5.5rem)] relative overflow-auto border-b docs_sidebar bg-sand-light-1 dark:bg-sand-dark-1">
+        <div class="absolute top-5 right-8">
+            <div class="flex items-center size-8 group" x-data="themeSwitcher" x-on:switch-theme.window="saveAndUpdate($event.detail)">
+    <button id="header__sun" @click="toSystemMode" title="Switch to system theme" class="size-8 cursor-default flex items-center justify-center text-sand-light-12 group-hover:text-sand-light-10 dark:text-sand-dark-12 dark:group-hover:text-sand-dark-10 transition duration-100 focus:outline-none focus:shadow-outline">
+        <svg class="size-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.0002 3.29071V1.76746M5.8418 18.1585L4.7647 19.2356M12.0002 22.2326V20.7093M19.2357 4.76456L18.1586 5.84166M20.7095 12H22.2327M18.1586 18.1584L19.2357 19.2355M1.76758 12H3.29083M4.76462 4.7645L5.84173 5.8416M15.7123 8.2877C17.7626 10.338 17.7626 13.6621 15.7123 15.7123C13.6621 17.7626 10.338 17.7626 8.2877 15.7123C6.23745 13.6621 6.23745 10.338 8.2877 8.2877C10.338 6.23745 13.6621 6.23745 15.7123 8.2877Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>    </button>
+    <button id="header__moon" @click="toLightMode" title="Switch to light mode" class="size-8 cursor-default flex items-center justify-center text-sand-light-12 group-hover:text-sand-light-10 dark:text-sand-dark-12 dark:group-hover:text-sand-dark-10 transition duration-100 focus:outline-none focus:shadow-outline">
+        <svg class="size-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.2496 14.1987C19.5326 14.3951 18.7782 14.5 18 14.5C13.3056 14.5 9.5 10.6944 9.5 5.99999C9.5 5.22185 9.60487 4.4674 9.80124 3.75043C6.15452 4.72095 3.46777 8.04578 3.46777 11.9981C3.46777 16.7114 7.28864 20.5323 12.0019 20.5323C15.9543 20.5323 19.2791 17.8455 20.2496 14.1987ZM20.5196 12.5328C19.7378 12.8346 18.8882 13 18 13C14.134 13 11 9.86598 11 5.99999C11 5.11181 11.1654 4.26226 11.4671 3.48047C11.6142 3.09951 11.7935 2.73464 12.0019 2.38923C12.0888 2.24526 12.1807 2.10466 12.2774 1.9677C12.1858 1.96523 12.094 1.96399 12.0019 1.96399C11.4758 1.96399 10.9592 2.00448 10.455 2.0825C5.64774 2.8264 1.96777 6.98251 1.96777 11.9981C1.96777 17.5398 6.46021 22.0323 12.0019 22.0323C17.0176 22.0323 21.1737 18.3523 21.9176 13.545C21.9956 13.0408 22.0361 12.5242 22.0361 11.9981C22.0361 11.906 22.0348 11.8141 22.0323 11.7226C21.8953 11.8193 21.7547 11.9112 21.6107 11.9981C21.2653 12.2065 20.9005 12.3858 20.5196 12.5328Z" fill="currentColor"/>
+<path d="M16.3333 5.33333L17.5 3L18.6667 5.33333L21 6.5L18.6667 7.66667L17.5 10L16.3333 7.66667L14 6.5L16.3333 5.33333Z" fill="currentColor"/>
+</svg>    </button>
+    <button id="header__indeterminate" @click="toDarkMode" title="Switch to dark mode" class="size-8 cursor-default flex items-center justify-center text-sand-light-12 group-hover:text-sand-light-10 dark:text-sand-dark-12 dark:group-hover:text-sand-dark-10 transition duration-100 focus:outline-none focus:shadow-outline">
+        <svg class="size-6 dark:hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 12C20.5 16.6944 16.6944 20.5 12 20.5V3.5C16.6944 3.5 20.5 7.30558 20.5 12ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" />
+</svg>        <svg class="size-6 hidden dark:block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 12C20.5 16.6944 16.6944 20.5 12 20.5V3.5C16.6944 3.5 20.5 7.30558 20.5 12ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor"/>
+</svg>    </button>
+</div>
+        </div>
+
+        <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="/docs/5.6/releases">Release Notes</a></li>
+<li><a href="/docs/5.6/upgrade">Upgrade Guide</a></li>
+<li><a href="/docs/5.6/contributions">Contribution Guide</a></li>
+<li><a href="/api/5.6">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="/docs/5.6/installation">Installation</a></li>
+<li><a href="/docs/5.6/configuration">Configuration</a></li>
+<li><a href="/docs/5.6/structure">Directory Structure</a></li>
+<li><a href="/docs/5.6/homestead">Homestead</a></li>
+<li><a href="/docs/5.6/valet">Valet</a></li>
+<li><a href="/docs/5.6/deployment">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="/docs/5.6/lifecycle">Request Lifecycle</a></li>
+<li><a href="/docs/5.6/container">Service Container</a></li>
+<li><a href="/docs/5.6/providers">Service Providers</a></li>
+<li><a href="/docs/5.6/facades">Facades</a></li>
+<li><a href="/docs/5.6/contracts">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="/docs/5.6/routing">Routing</a></li>
+<li><a href="/docs/5.6/middleware">Middleware</a></li>
+<li><a href="/docs/5.6/csrf">CSRF Protection</a></li>
+<li><a href="/docs/5.6/controllers">Controllers</a></li>
+<li><a href="/docs/5.6/requests">Requests</a></li>
+<li><a href="/docs/5.6/responses">Responses</a></li>
+<li><a href="/docs/5.6/views">Views</a></li>
+<li><a href="/docs/5.6/urls">URL Generation</a></li>
+<li><a href="/docs/5.6/session">Session</a></li>
+<li><a href="/docs/5.6/validation">Validation</a></li>
+<li><a href="/docs/5.6/errors">Error Handling</a></li>
+<li><a href="/docs/5.6/logging">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="/docs/5.6/blade">Blade Templates</a></li>
+<li><a href="/docs/5.6/localization">Localization</a></li>
+<li><a href="/docs/5.6/frontend">Frontend Scaffolding</a></li>
+<li><a href="/docs/5.6/mix">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="/docs/5.6/authentication">Authentication</a></li>
+<li><a href="/docs/5.6/passport">API Authentication</a></li>
+<li><a href="/docs/5.6/authorization">Authorization</a></li>
+<li><a href="/docs/5.6/encryption">Encryption</a></li>
+<li><a href="/docs/5.6/hashing">Hashing</a></li>
+<li><a href="/docs/5.6/passwords">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="/docs/5.6/artisan">Artisan Console</a></li>
+<li><a href="/docs/5.6/broadcasting">Broadcasting</a></li>
+<li><a href="/docs/5.6/cache">Cache</a></li>
+<li><a href="/docs/5.6/collections">Collections</a></li>
+<li><a href="/docs/5.6/events">Events</a></li>
+<li><a href="/docs/5.6/filesystem">File Storage</a></li>
+<li><a href="/docs/5.6/helpers">Helpers</a></li>
+<li><a href="/docs/5.6/mail">Mail</a></li>
+<li><a href="/docs/5.6/notifications">Notifications</a></li>
+<li><a href="/docs/5.6/packages">Package Development</a></li>
+<li><a href="/docs/5.6/queues">Queues</a></li>
+<li><a href="/docs/5.6/scheduling">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="/docs/5.6/database">Getting Started</a></li>
+<li><a href="/docs/5.6/queries">Query Builder</a></li>
+<li><a href="/docs/5.6/pagination">Pagination</a></li>
+<li><a href="/docs/5.6/migrations">Migrations</a></li>
+<li><a href="/docs/5.6/seeding">Seeding</a></li>
+<li><a href="/docs/5.6/redis">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="/docs/5.6/eloquent">Getting Started</a></li>
+<li><a href="/docs/5.6/eloquent-relationships">Relationships</a></li>
+<li><a href="/docs/5.6/eloquent-collections">Collections</a></li>
+<li><a href="/docs/5.6/eloquent-mutators">Mutators</a></li>
+<li><a href="/docs/5.6/eloquent-resources">API Resources</a></li>
+<li><a href="/docs/5.6/eloquent-serialization">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="/docs/5.6/testing">Getting Started</a></li>
+<li><a href="/docs/5.6/http-tests">HTTP Tests</a></li>
+<li><a href="/docs/5.6/dusk">Browser Tests</a></li>
+<li><a href="/docs/5.6/database-testing">Database</a></li>
+<li><a href="/docs/5.6/mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="sub--on">
+<h2>Official Packages</h2>
+<ul>
+<li><a href="/docs/5.6/billing">Cashier</a></li>
+<li><a href="/docs/5.6/envoy">Envoy</a></li>
+<li><a href="/docs/5.6/horizon">Horizon</a></li>
+<li><a href="/docs/5.6/passport">Passport</a></li>
+<li><a href="/docs/5.6/scout">Scout</a></li>
+<li><a href="/docs/5.6/socialite">Socialite</a></li>
+</ul>
+</li>
+<li><a href="/docs/changelog">Changelog</a></li></ul>
+
+    </div>
+</div>
+
+                <div class="px-4 xl:px-16">
+        <a
+    id="skip-to-content-link"
+    href="#main-content"
+    class="absolute bg-gray-100 px-4 py-2 top-3 left-3 text-gray-700 shadow-xl"
+>
+    Skip to content
+</a>
+
+        <div class="grid grid-cols-12 gap-4 lg:gap-6 xl:gap-x-10 px-6 mt-10 lg:px-0" id="docsScreen">
+    <aside class="relative col-span-3 lg:pb-6">
+                <div class="sticky bottom-0 left-0 z-20 hidden top-22 lg:block">
+                    <div class="relative flex flex-col flex-1 max-h-screen pl-16 -ml-16 overflow-auto sticky-side-nav">
+                        <nav id="indexed-nav" class="hidden lg:block">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="/docs/5.6/releases">Release Notes</a></li>
+<li><a href="/docs/5.6/upgrade">Upgrade Guide</a></li>
+<li><a href="/docs/5.6/contributions">Contribution Guide</a></li>
+<li><a href="/api/5.6">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="/docs/5.6/installation">Installation</a></li>
+<li><a href="/docs/5.6/configuration">Configuration</a></li>
+<li><a href="/docs/5.6/structure">Directory Structure</a></li>
+<li><a href="/docs/5.6/homestead">Homestead</a></li>
+<li><a href="/docs/5.6/valet">Valet</a></li>
+<li><a href="/docs/5.6/deployment">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="/docs/5.6/lifecycle">Request Lifecycle</a></li>
+<li><a href="/docs/5.6/container">Service Container</a></li>
+<li><a href="/docs/5.6/providers">Service Providers</a></li>
+<li><a href="/docs/5.6/facades">Facades</a></li>
+<li><a href="/docs/5.6/contracts">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="/docs/5.6/routing">Routing</a></li>
+<li><a href="/docs/5.6/middleware">Middleware</a></li>
+<li><a href="/docs/5.6/csrf">CSRF Protection</a></li>
+<li><a href="/docs/5.6/controllers">Controllers</a></li>
+<li><a href="/docs/5.6/requests">Requests</a></li>
+<li><a href="/docs/5.6/responses">Responses</a></li>
+<li><a href="/docs/5.6/views">Views</a></li>
+<li><a href="/docs/5.6/urls">URL Generation</a></li>
+<li><a href="/docs/5.6/session">Session</a></li>
+<li><a href="/docs/5.6/validation">Validation</a></li>
+<li><a href="/docs/5.6/errors">Error Handling</a></li>
+<li><a href="/docs/5.6/logging">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="/docs/5.6/blade">Blade Templates</a></li>
+<li><a href="/docs/5.6/localization">Localization</a></li>
+<li><a href="/docs/5.6/frontend">Frontend Scaffolding</a></li>
+<li><a href="/docs/5.6/mix">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="/docs/5.6/authentication">Authentication</a></li>
+<li><a href="/docs/5.6/passport">API Authentication</a></li>
+<li><a href="/docs/5.6/authorization">Authorization</a></li>
+<li><a href="/docs/5.6/encryption">Encryption</a></li>
+<li><a href="/docs/5.6/hashing">Hashing</a></li>
+<li><a href="/docs/5.6/passwords">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="/docs/5.6/artisan">Artisan Console</a></li>
+<li><a href="/docs/5.6/broadcasting">Broadcasting</a></li>
+<li><a href="/docs/5.6/cache">Cache</a></li>
+<li><a href="/docs/5.6/collections">Collections</a></li>
+<li><a href="/docs/5.6/events">Events</a></li>
+<li><a href="/docs/5.6/filesystem">File Storage</a></li>
+<li><a href="/docs/5.6/helpers">Helpers</a></li>
+<li><a href="/docs/5.6/mail">Mail</a></li>
+<li><a href="/docs/5.6/notifications">Notifications</a></li>
+<li><a href="/docs/5.6/packages">Package Development</a></li>
+<li><a href="/docs/5.6/queues">Queues</a></li>
+<li><a href="/docs/5.6/scheduling">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="/docs/5.6/database">Getting Started</a></li>
+<li><a href="/docs/5.6/queries">Query Builder</a></li>
+<li><a href="/docs/5.6/pagination">Pagination</a></li>
+<li><a href="/docs/5.6/migrations">Migrations</a></li>
+<li><a href="/docs/5.6/seeding">Seeding</a></li>
+<li><a href="/docs/5.6/redis">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="/docs/5.6/eloquent">Getting Started</a></li>
+<li><a href="/docs/5.6/eloquent-relationships">Relationships</a></li>
+<li><a href="/docs/5.6/eloquent-collections">Collections</a></li>
+<li><a href="/docs/5.6/eloquent-mutators">Mutators</a></li>
+<li><a href="/docs/5.6/eloquent-resources">API Resources</a></li>
+<li><a href="/docs/5.6/eloquent-serialization">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="/docs/5.6/testing">Getting Started</a></li>
+<li><a href="/docs/5.6/http-tests">HTTP Tests</a></li>
+<li><a href="/docs/5.6/dusk">Browser Tests</a></li>
+<li><a href="/docs/5.6/database-testing">Database</a></li>
+<li><a href="/docs/5.6/mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="sub--on">
+<h2>Official Packages</h2>
+<ul>
+<li><a href="/docs/5.6/billing">Cashier</a></li>
+<li><a href="/docs/5.6/envoy">Envoy</a></li>
+<li><a href="/docs/5.6/horizon">Horizon</a></li>
+<li><a href="/docs/5.6/passport">Passport</a></li>
+<li><a href="/docs/5.6/scout">Scout</a></li>
+<li><a href="/docs/5.6/socialite">Socialite</a></li>
+</ul>
+</li>
+<li><a href="/docs/changelog">Changelog</a></li></ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="col-span-12 lg:col-span-9 xl:col-span-6">
+                <div>
+                    <section>
+                        <section class="docs_main max-w-prose">
+                                                            <blockquote>
+                                    <div class="callout">
+                                        <div class="flex flex-col p-3 mb-10 space-y-4 text-base leading-normal border rounded-md lg:px-4 lg:flex-row lg:space-y-0 lg:space-x-4 border-sand-light-5 callout dark:border-sand-dark-5 dark:text-sand-light-3 text-sand-dark-3">
+                                            <div class="w-8 h-8 p-2 lg:my-1.5 rounded-xs flex items-center justify-center shrink-0 bg-[#F53003]">
+                                                <svg width="2" height="18" viewBox="0 0 2 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 17V16.99M1 1V13" stroke="#FDFDFC" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+                                            </div>
+
+                                            <p>
+                                                <strong>WARNING</strong> You're browsing the documentation for an old version of Laravel.
+                                                Consider upgrading your project to <a href="https://laravel.com/docs/12.x">Laravel 12.x</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            
+                            
+                            <div id="main-content" class="contains-code-blocks">
+    <h1>Installation</h1>
+<ul>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#server-requirements">Server Requirements</a></li>
+<li><a href="#installing-laravel">Installing Laravel</a></li>
+<li><a href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li><a href="#web-server-configuration">Web Server Configuration</a>
+<ul>
+<li><a href="#pretty-urls">Pretty URLs</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="installation"><a href="#installation">Installation</a></h2>
+<div class="flex flex-col p-3 mb-10 space-y-4 text-base leading-normal border rounded-md lg:px-4 lg:flex-row lg:space-y-0 lg:space-x-4 border-sand-light-5 callout dark:border-sand-dark-5 dark:text-sand-light-3 text-sand-dark-3">
+    <div class="w-8 h-8 p-2 lg:my-1.5 rounded-xs flex items-center justify-center shrink-0 bg-blue-600">
+        <svg width="49" height="40" viewBox="0 0 49 40" xmlns="http://www.w3.org/2000/svg"><title>laracast</title><path d="M14.21 15.79h14.737a1.579 1.579 0 1 1 0 3.157H14.211a1.579 1.579 0 0 1 0-3.158zm-7.368 0h2.105a1.579 1.579 0 1 1 0 3.157H6.842a1.579 1.579 0 1 1 0-3.158zm2.105 5.263h14.737a1.579 1.579 0 1 1 0 3.158H8.947a1.579 1.579 0 0 1 0-3.158zm-7.368 0h2.105a1.579 1.579 0 1 1 0 3.158H1.58a1.579 1.579 0 1 1 0-3.158zm11.053 6.09h4.21v5.714L42.105 20 16.842 7.143v5.714h-4.21V0l34.521 17.913a2.35 2.35 0 0 1 0 4.174L12.632 40V27.143z" fill="#FFF" fill-rule="nonzero"/></svg>
+    </div>
+    <p class="callout text-pretty"> Laracasts provides a <a href="http://laravelfromscratch.com">free, thorough introduction to Laravel</a> for newcomers to the framework. It's a great place to start your journey.</p>
+</div>
+<h3 id="server-requirements"><a href="#server-requirements">Server Requirements</a></h3>
+<p>The Laravel framework has a few system requirements. Of course, all of these requirements are satisfied by the <a href="/docs/5.6/homestead">Laravel Homestead</a> virtual machine, so it's highly recommended that you use Homestead as your local Laravel development environment.</p>
+<p>However, if you are not using Homestead, you will need to make sure your server meets the following requirements:</p>
+<div class="content-list" markdown="1">
+<ul>
+<li>PHP &gt;= 7.1.3</li>
+<li>OpenSSL PHP Extension</li>
+<li>PDO PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>Tokenizer PHP Extension</li>
+<li>XML PHP Extension</li>
+<li>Ctype PHP Extension</li>
+<li>JSON PHP Extension</li>
+</ul>
+</div>
+<h3 id="installing-laravel"><a href="#installing-laravel">Installing Laravel</a></h3>
+<p>Laravel utilizes <a href="https://getcomposer.org">Composer</a> to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.</p>
+<h4>Via Laravel Installer</h4>
+<p>First, download the Laravel installer using Composer:</p>
+<pre><code data-theme="olaolu-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #7580B850;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #82AAFF;">composer</span><span style="color: #BFC7D5;"> </span><span style="color: #C792EA;">global</span><span style="color: #BFC7D5;"> </span><span style="color: #C792EA;">require</span><span style="color: #BFC7D5;"> </span><span style="color: #D9F5DD;">&quot;</span><span style="color: #C3E88D;">laravel/installer</span><span style="color: #D9F5DD;">&quot;</span></div><div aria-hidden='true' hidden tabindex='-1' style='display: none;' class='torchlight-copy-target'>
+composer global require &quot;laravel/installer&quot;</div></code></pre>
+<p>Make sure to place composer's system-wide vendor bin directory in your <code>$PATH</code> so the laravel executable can be located by your system. This directory exists in different locations based on your operating system; however, some common locations include:</p>
+<div class="content-list" markdown="1">
+<ul>
+<li>macOS: <code>$HOME/.composer/vendor/bin</code></li>
+<li>GNU / Linux Distributions: <code>$HOME/.config/composer/vendor/bin</code></li>
+</ul>
+</div>
+<p>Once installed, the <code>laravel new</code> command will create a fresh Laravel installation in the directory you specify. For instance, <code>laravel new blog</code> will create a directory named <code>blog</code> containing a fresh Laravel installation with all of Laravel's dependencies already installed:</p>
+<pre><code data-theme="olaolu-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #7580B850;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #82AAFF;">laravel</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">new</span><span style="color: #BFC7D5;"> </span><span style="color: #FFCB8B;">blog</span></div><div aria-hidden='true' hidden tabindex='-1' style='display: none;' class='torchlight-copy-target'>
+laravel new blog</div></code></pre>
+<h4>Via Composer Create-Project</h4>
+<p>Alternatively, you may also install Laravel by issuing the Composer <code>create-project</code> command in your terminal:</p>
+<pre><code data-theme="olaolu-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #7580B850;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #82AAFF;">composer</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">create</span><span style="color: #89DDFF;">-</span><span style="color: #82AAFF;">project</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">--</span><span style="color: #82AAFF;">prefer</span><span style="color: #89DDFF;">-</span><span style="color: #82AAFF;">dist</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">laravel</span><span style="color: #89DDFF;">/</span><span style="color: #82AAFF;">laravel</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">blog</span><span style="color: #BFC7D5;"> </span><span style="color: #D9F5DD;">&quot;</span><span style="color: #C3E88D;">5.6.*</span><span style="color: #D9F5DD;">&quot;</span></div><div aria-hidden='true' hidden tabindex='-1' style='display: none;' class='torchlight-copy-target'>
+composer create-project --prefer-dist laravel/laravel blog &quot;5.6.*&quot;</div></code></pre>
+<h4>Local Development Server</h4>
+<p>If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the <code>serve</code> Artisan command. This command will start a development server at <code>http://localhost:8000</code>:</p>
+<pre><code data-theme="olaolu-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #7580B850;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #82AAFF;">php</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">artisan</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">serve</span></div><div aria-hidden='true' hidden tabindex='-1' style='display: none;' class='torchlight-copy-target'>
+php artisan serve</div></code></pre>
+<p>Of course, more robust local development options are available via <a href="/docs/5.6/homestead">Homestead</a> and <a href="/docs/5.6/valet">Valet</a>.</p>
+<h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+<h4>Public Directory</h4>
+<p>After installing Laravel, you should configure your web server's document / web root to be the <code>public</code> directory. The <code>index.php</code> in this directory serves as the front controller for all HTTP requests entering your application.</p>
+<h4>Configuration Files</h4>
+<p>All of the configuration files for the Laravel framework are stored in the <code>config</code> directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.</p>
+<h4>Directory Permissions</h4>
+<p>After installing Laravel, you may need to configure some permissions. Directories within the <code>storage</code> and the <code>bootstrap/cache</code> directories should be writable by your web server or Laravel will not run. If you are using the <a href="/docs/5.6/homestead">Homestead</a> virtual machine, these permissions should already be set.</p>
+<h4>Application Key</h4>
+<p>The next thing you should do after installing Laravel is set your application key to a random string. If you installed Laravel via Composer or the Laravel installer, this key has already been set for you by the <code>php artisan key:generate</code> command.</p>
+<p>Typically, this string should be 32 characters long. The key can be set in the <code>.env</code> environment file. If you have not renamed the <code>.env.example</code> file to <code>.env</code>, you should do that now. <strong>If the application key is not set, your user sessions and other encrypted data will not be secure!</strong></p>
+<h4>Additional Configuration</h4>
+<p>Laravel needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the <code>config/app.php</code> file and its documentation. It contains several options such as <code>timezone</code> and <code>locale</code> that you may wish to change according to your application.</p>
+<p>You may also want to configure a few additional components of Laravel, such as:</p>
+<div class="content-list" markdown="1">
+<ul>
+<li><a href="/docs/5.6/cache#configuration">Cache</a></li>
+<li><a href="/docs/5.6/database#configuration">Database</a></li>
+<li><a href="/docs/5.6/session#configuration">Session</a></li>
+</ul>
+</div>
+<h2 id="web-server-configuration"><a href="#web-server-configuration">Web Server Configuration</a></h2>
+<h3 id="pretty-urls"><a href="#pretty-urls">Pretty URLs</a></h3>
+<h4>Apache</h4>
+<p>Laravel includes a <code>public/.htaccess</code> file that is used to provide URLs without the <code>index.php</code> front controller in the path. Before serving Laravel with Apache, be sure to enable the <code>mod_rewrite</code> module so the <code>.htaccess</code> file will be honored by the server.</p>
+<p>If the <code>.htaccess</code> file that ships with Laravel does not work with your Apache installation, try this alternative:</p>
+<pre><code data-theme="olaolu-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #7580B850;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #82AAFF;">Options</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">+</span><span style="color: #82AAFF;">FollowSymLinks</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">-</span><span style="color: #82AAFF;">Indexes</span></div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #82AAFF;">RewriteEngine</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">On</span></div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #82AAFF;">RewriteCond</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">%</span><span style="color: #BFC7D5;">{</span><span style="color: #82AAFF;">REQUEST_FILENAME</span><span style="color: #BFC7D5;">} </span><span style="color: #C792EA;">!</span><span style="color: #89DDFF;">-</span><span style="color: #82AAFF;">d</span></div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #82AAFF;">RewriteCond</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">%</span><span style="color: #BFC7D5;">{</span><span style="color: #82AAFF;">REQUEST_FILENAME</span><span style="color: #BFC7D5;">} </span><span style="color: #C792EA;">!</span><span style="color: #89DDFF;">-</span><span style="color: #82AAFF;">f</span></div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #82AAFF;">RewriteRule</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">^</span><span style="color: #BFC7D5;"> </span><span style="color: #82AAFF;">index</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">php</span><span style="color: #BFC7D5;"> [</span><span style="color: #82AAFF;">L</span><span style="color: #BFC7D5;">]</span></div><div aria-hidden='true' hidden tabindex='-1' style='display: none;' class='torchlight-copy-target'>
+Options +FollowSymLinks -Indexes
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]</div></code></pre>
+<h4>Nginx</h4>
+<p>If you are using Nginx, the following directive in your site configuration will direct all requests to the <code>index.php</code> front controller:</p>
+<pre><code data-theme="olaolu-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #7580B850;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #82AAFF;">location</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">/</span><span style="color: #BFC7D5;"> {</span></div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BFC7D5;">    </span><span style="color: #82AAFF;">try_files</span><span style="color: #BFC7D5;"> </span><span style="color: #BEC5D4;">$uri</span><span style="color: #BFC7D5;"> </span><span style="color: #BEC5D4;">$uri</span><span style="color: #89DDFF;">/</span><span style="color: #BFC7D5;"> </span><span style="color: #89DDFF;">/</span><span style="color: #82AAFF;">index</span><span style="color: #89DDFF;">.</span><span style="color: #82AAFF;">php</span><span style="color: #89DDFF;">?</span><span style="color: #BEC5D4;">$query_string</span><span style="color: #BFC7D5;">;</span></div><div class='line'><span style="color:#4c5374; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #BFC7D5;">}</span></div><div aria-hidden='true' hidden tabindex='-1' style='display: none;' class='torchlight-copy-target'>
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}</div></code></pre>
+<p>Of course, when using <a href="/docs/5.6/homestead">Homestead</a> or <a href="/docs/5.6/valet">Valet</a>, pretty URLs will be automatically configured.</p>
+</div>
+                        </section>
+                    </section>
+                </div>
+            </section>
+
+            <div class="relative hidden col-span-12 xl:block lg:pb-10 lg:col-span-9 lg:col-start-4 xl:col-start-auto xl:col-span-3">
+                <div class="relative pl-10 lg:sticky lg:top-28">
+                    <div>
+    
+    
+            <h3 class="mt-0 text-xs font-medium text-sand-light-11 dark:text-sand-dark-11 mb-3 flex items-center gap-2">
+            <svg class="size-4 inline-block text-sand-light-9 dark:text-sand-dark-11" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.83301 7.99992H14.1663M1.83301 3.83325H14.1663M1.83301 12.1666H7.66634" stroke="#C8C7C1" stroke-width="1.25" stroke-linecap="square"/></svg>            On this page
+        </h3>
+    
+    <div class="max-h-[calc(100vh-172px)] pb-10 overflow-y-auto space-y-10">
+                    <div id="on-this-page-content"
+                class="pr-4 border-l border-sand-light-5 dark:border-sand-dark-5">
+                                    <ul>
+                                                    <li class="mt-1.5 first:mt-0 py-0.5">
+                                <a href="#installation"
+                                class="inline-block border-l-[3px] border-transparent pl-4 text-[13px]
+                                        text-sand-light-11 dark:text-sand-dark-11
+                                        hover:border-sand-dark-4/25 hover:text-sand-light-12
+                                        dark:hover:border-sand-light-4/25 dark:hover:text-sand-dark-12
+                                        [&[data-active='true']]:border-laravel-red
+                                        [&[data-active='true']]:text-sand-light-12 [&[data-active='true']]:dark:text-sand-dark-12">
+                                    Installation
+                                </a>
+
+                                                                    <ul class="mt-1.5">
+                                                                                    <li class="py-0.5">
+                                                <a href="#server-requirements"
+                                                class="inline-block border-l-[3px] border-transparent pl-8 text-[13px]
+                                                        text-sand-light-11 dark:text-sand-dark-11
+                                                        hover:border-sand-dark-4/25 hover:text-sand-light-12
+                                                        dark:hover:border-sand-light-4/25 dark:hover:text-sand-dark-12
+                                                        [&[data-active='true']]:border-laravel-red
+                                                        [&[data-active='true']]:text-sand-light-12 [&[data-active='true']]:dark:text-sand-dark-12">
+                                                    Server Requirements
+                                                </a>
+                                            </li>
+                                                                                    <li class="py-0.5">
+                                                <a href="#installing-laravel"
+                                                class="inline-block border-l-[3px] border-transparent pl-8 text-[13px]
+                                                        text-sand-light-11 dark:text-sand-dark-11
+                                                        hover:border-sand-dark-4/25 hover:text-sand-light-12
+                                                        dark:hover:border-sand-light-4/25 dark:hover:text-sand-dark-12
+                                                        [&[data-active='true']]:border-laravel-red
+                                                        [&[data-active='true']]:text-sand-light-12 [&[data-active='true']]:dark:text-sand-dark-12">
+                                                    Installing Laravel
+                                                </a>
+                                            </li>
+                                                                                    <li class="py-0.5">
+                                                <a href="#configuration"
+                                                class="inline-block border-l-[3px] border-transparent pl-8 text-[13px]
+                                                        text-sand-light-11 dark:text-sand-dark-11
+                                                        hover:border-sand-dark-4/25 hover:text-sand-light-12
+                                                        dark:hover:border-sand-light-4/25 dark:hover:text-sand-dark-12
+                                                        [&[data-active='true']]:border-laravel-red
+                                                        [&[data-active='true']]:text-sand-light-12 [&[data-active='true']]:dark:text-sand-dark-12">
+                                                    Configuration
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li class="mt-1.5 first:mt-0 py-0.5">
+                                <a href="#web-server-configuration"
+                                class="inline-block border-l-[3px] border-transparent pl-4 text-[13px]
+                                        text-sand-light-11 dark:text-sand-dark-11
+                                        hover:border-sand-dark-4/25 hover:text-sand-light-12
+                                        dark:hover:border-sand-light-4/25 dark:hover:text-sand-dark-12
+                                        [&[data-active='true']]:border-laravel-red
+                                        [&[data-active='true']]:text-sand-light-12 [&[data-active='true']]:dark:text-sand-dark-12">
+                                    Web Server Configuration
+                                </a>
+
+                                                                    <ul class="mt-1.5">
+                                                                                    <li class="py-0.5">
+                                                <a href="#pretty-urls"
+                                                class="inline-block border-l-[3px] border-transparent pl-8 text-[13px]
+                                                        text-sand-light-11 dark:text-sand-dark-11
+                                                        hover:border-sand-dark-4/25 hover:text-sand-light-12
+                                                        dark:hover:border-sand-light-4/25 dark:hover:text-sand-dark-12
+                                                        [&[data-active='true']]:border-laravel-red
+                                                        [&[data-active='true']]:text-sand-light-12 [&[data-active='true']]:dark:text-sand-dark-12">
+                                                    Pretty URLs
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                            </ul>
+                            </div>
+                <div class="px-4 mt-10">
+            <div id="docs-ad"></div>
+
+    <template id="promote-forge">
+        <div class="docs-ad aspect-200/275 max-w-50 w-full ">
+            <div class="relative hover:-translate-y-0.5 transition-transform h-full">
+                <a
+                    href="https://forge.laravel.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative overflow-hidden rounded-lg p-5 font-medium text-base/[120%] docs-ad-link h-full flex flex-col items-start justify-end gap-4 bg-cover bg-center"
+                    style="background-image: url('/images/ads/forge-ad-background.png');"
+                >
+                                            <img src="/images/ads/forge-logo.svg" class="w-auto h-4" alt="Laravel Forge" />
+                                                                <p class='tracking-[-0.3px] text-[#C6FFF5]'>Server management made simple for any PHP app</p>
+                                        <div class="text-white inline-flex items-center gap-1.5 text-sm/[120%]">
+                        Learn more
+                        <svg class="size-4 shrink-0" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 10.5v-6h-6m-1.833 7.833 7.167-7.166" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </template>
+    <template id="promote-cloud">
+        <div class="docs-ad aspect-200/275 max-w-50 w-full ">
+            <div class="relative hover:-translate-y-0.5 transition-transform h-full">
+                <a
+                    href="https://cloud.laravel.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative overflow-hidden rounded-lg p-5 font-medium text-base/[120%] docs-ad-link h-full flex flex-col items-start justify-end gap-4 bg-cover bg-center"
+                    style="background-image: url('/images/ads/cloud-ad-background.png');"
+                >
+                                            <img src="/images/ads/cloud-logo.svg" class="w-auto h-4" alt="Laravel Cloud" />
+                                                                <p class='tracking-[-0.3px] text-[#C1DBFF]'>The fastest way to deploy and scale Laravel apps</p>
+                                        <div class="text-white inline-flex items-center gap-1.5 text-sm/[120%]">
+                        Learn more
+                        <svg class="size-4 shrink-0" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 10.5v-6h-6m-1.833 7.833 7.167-7.166" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </template>
+    <template id="promote-nightwatch">
+        <div class="docs-ad aspect-200/275 max-w-50 w-full ">
+            <div class="relative hover:-translate-y-0.5 transition-transform h-full">
+                <a
+                    href="https://nightwatch.laravel.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative overflow-hidden rounded-lg p-5 font-medium text-base/[120%] docs-ad-link h-full flex flex-col items-start justify-end gap-4 bg-cover bg-center"
+                    style="background-image: url('/images/ads/nightwatch-ad-background.png');"
+                >
+                                            <img src="/images/ads/nightwatch-logo.svg" class="w-auto h-[18px]" alt="Laravel Nightwatch" />
+                                                                <p class='tracking-[-0.3px] text-[#D3FFE7]'>First-class monitoring and deep insights for Laravel apps</p>
+                                        <div class="text-white inline-flex items-center gap-1.5 text-sm/[120%]">
+                        Learn more
+                        <svg class="size-4 shrink-0" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 10.5v-6h-6m-1.833 7.833 7.167-7.166" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </template>
+    <template id="promote-boost">
+        <div class="docs-ad aspect-200/275 max-w-50 w-full ">
+            <div class="relative hover:-translate-y-0.5 transition-transform h-full">
+                <a
+                    href="https://laravel.com/docs/12.x/installation#laravel-and-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative overflow-hidden rounded-lg p-5 font-medium text-base/[120%] docs-ad-link h-full flex flex-col items-start justify-end gap-4 bg-cover bg-center"
+                    style="background-image: url('/images/ads/boost-ad-background.png');"
+                >
+                                            <img src="/images/ads/boost-logo.svg" class="w-auto h-[18px]" alt="Laravel Boost" />
+                                                                <p class='tracking-[-0.3px] text-[#FBE6FE]'>Supercharge your AI development with essential context</p>
+                                        <div class="text-white inline-flex items-center gap-1.5 text-sm/[120%]">
+                        Learn more
+                        <svg class="size-4 shrink-0" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 10.5v-6h-6m-1.833 7.833 7.167-7.166" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </template>
+
+<script>
+    const docsAd = document.getElementById('docs-ad');
+    const adKey = JSON.parse('[\u0022forge\u0022,\u0022cloud\u0022,\u0022nightwatch\u0022,\u0022boost\u0022]')[Math.floor(Math.random() * 4)];
+    const ad = JSON.parse('{\u0022forge\u0022:{\u0022title\u0022:\u0022Laravel Forge\u0022,\u0022url\u0022:\u0022https:\\\/\\\/forge.laravel.com\u0022,\u0022background\u0022:\u0022forge-ad-background.png\u0022,\u0022logo\u0022:\u0022forge-logo.svg\u0022,\u0022logo_classes\u0022:\u0022h-4\u0022,\u0022text\u0022:\u0022\\u003Cp class=\\u0027tracking-[-0.3px] text-[#C6FFF5]\\u0027\\u003EServer management made simple for any PHP app\\u003C\\\/p\\u003E\u0022},\u0022cloud\u0022:{\u0022title\u0022:\u0022Laravel Cloud\u0022,\u0022url\u0022:\u0022https:\\\/\\\/cloud.laravel.com\u0022,\u0022background\u0022:\u0022cloud-ad-background.png\u0022,\u0022logo\u0022:\u0022cloud-logo.svg\u0022,\u0022logo_classes\u0022:\u0022h-4\u0022,\u0022text\u0022:\u0022\\u003Cp class=\\u0027tracking-[-0.3px] text-[#C1DBFF]\\u0027\\u003EThe fastest way to deploy and scale Laravel apps\\u003C\\\/p\\u003E\u0022},\u0022nightwatch\u0022:{\u0022title\u0022:\u0022Laravel Nightwatch\u0022,\u0022url\u0022:\u0022https:\\\/\\\/nightwatch.laravel.com\u0022,\u0022background\u0022:\u0022nightwatch-ad-background.png\u0022,\u0022logo\u0022:\u0022nightwatch-logo.svg\u0022,\u0022logo_classes\u0022:\u0022h-[18px]\u0022,\u0022text\u0022:\u0022\\u003Cp class=\\u0027tracking-[-0.3px] text-[#D3FFE7]\\u0027\\u003EFirst-class monitoring and deep insights for Laravel apps\\u003C\\\/p\\u003E\u0022},\u0022boost\u0022:{\u0022title\u0022:\u0022Laravel Boost\u0022,\u0022url\u0022:\u0022https:\\\/\\\/laravel.com\\\/docs\\\/12.x\\\/installation#laravel-and-ai\u0022,\u0022background\u0022:\u0022boost-ad-background.png\u0022,\u0022logo\u0022:\u0022boost-logo.svg\u0022,\u0022logo_classes\u0022:\u0022h-[18px]\u0022,\u0022text\u0022:\u0022\\u003Cp class=\\u0027tracking-[-0.3px] text-[#FBE6FE]\\u0027\\u003ESupercharge your AI development with essential context\\u003C\\\/p\\u003E\u0022}}')[adKey]
+    const activePromotionTemplate = document.getElementById(
+        'promote-'+adKey
+    )
+    const activePromotionTitle = activePromotionTemplate.content.querySelector('img').getAttribute('alt');
+
+    docsAd.appendChild(activePromotionTemplate.content);
+
+    // check if ad should be hidden
+    (function() {
+        const adElement = docsAd.querySelector('.docs-ad');
+        const closeButton = docsAd.querySelector('.docs-ad-close');
+        const adLink = docsAd.querySelector('.docs-ad-link');
+
+        // hide if previously closed
+        try {
+            if (localStorage.getItem('docs-ad-closed') === 'true' && false) {
+                adElement.classList.add('xl:hidden');
+                adElement.classList.remove('xl:block');
+            }
+        } catch (e) {
+            // ignore localStorage errors
+        }
+
+        // handle the close button
+        if (closeButton) {
+            closeButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                adElement.classList.add('xl:hidden');
+                adElement.classList.remove('xl:block');
+
+                try {
+                    localStorage.setItem('docs-ad-closed', 'true');
+                } catch (e) {
+                    // ignore localStorage errors
+                }
+
+                // track close button click with rudderanalytics
+                try {
+                    if (typeof rudderanalytics !== 'undefined') {
+                        rudderanalytics.track((ad.analytics_event || ad.title) + " Ad Closed", {
+                            category: "User Actions",
+                            label: (ad.analytics_label || ad.title) + " Ad",
+                            timestamp: new Date().toISOString()
+                        });
+                    }
+                } catch (e) {
+                    // ignore rudderanalytics errors
+                }
+            });
+        }
+
+        // track ad clicks
+        if (adLink) {
+            adLink.addEventListener('click', function(e) {
+                // prevent default link behavior
+                e.preventDefault();
+
+                // track ad click with rudderanalytics
+                try {
+                    if (typeof rudderanalytics !== 'undefined') {
+                        rudderanalytics.track((ad.analytics_event || ad.title) + " Ad Clicked", {
+                            category: "User Actions",
+                            label: (ad.analytics_label || ad.title) + " Ad",
+                            timestamp: new Date().toISOString()
+                        }, function() {
+                            // navigate after tracking completes
+                            window.open(adLink.href, '_blank', 'noopener,noreferrer');
+                        });
+                    } else {
+                        // if rudderanalytics is not available, navigate immediately
+                        window.open(adLink.href, '_blank', 'noopener,noreferrer');
+                    }
+                } catch (e) {
+                    // if tracking fails, navigation still happens
+                    window.open(adLink.href, '_blank', 'noopener,noreferrer');
+                }
+            });
+        }
+    })();
+</script>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+</div>
+    </div>
+            </div>
+        </div>
+
+        <div
+    class="text-sand-dark-10">
+    <div
+        class="max-w-full w-full xl:max-w-[1400px] pt-10 md:pt-24 px-4 xl:px-16 mx-auto border-l border-sand-light-7 dark:border-sand-dark-6">
+        <div class="grid grid-cols-12 lg:gap-12">
+            <div class="col-span-12 lg:col-span-3 lg:mt-14">
+                <p class="text-pretty">Laravel is the most productive way to<br class="block lg:hidden"> build, deploy, and monitor software.</p>
+
+                <ul class="flex items-center justify-start my-8 space-x-6 lg:my-16">
+                    <li>
+                        <a href="https://github.com/laravel" target="_blank" title="Laravel on GitHub" class="transition duration-100 hover:text-sand-dark-6">
+                            <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M0 12.305C0 17.74 3.438 22.352 8.207 23.979C8.807 24.092 9.027 23.712 9.027 23.386C9.027 23.094 9.016 22.32 9.01 21.293C5.671 22.037 4.967 19.643 4.967 19.643C4.422 18.223 3.635 17.845 3.635 17.845C2.545 17.081 3.718 17.096 3.718 17.096C4.921 17.183 5.555 18.364 5.555 18.364C6.626 20.244 8.364 19.702 9.048 19.386C9.157 18.591 9.468 18.049 9.81 17.741C7.145 17.431 4.344 16.376 4.344 11.661C4.344 10.318 4.811 9.219 5.579 8.359C5.456 8.048 5.044 6.797 5.696 5.103C5.696 5.103 6.704 4.773 8.996 6.364C9.954 6.091 10.98 5.955 12.001 5.95C13.02 5.955 14.047 6.091 15.005 6.364C17.295 4.772 18.302 5.103 18.302 5.103C18.956 6.797 18.544 8.048 18.421 8.359C19.191 9.219 19.655 10.318 19.655 11.661C19.655 16.387 16.849 17.428 14.175 17.732C14.606 18.112 14.99 18.862 14.99 20.011C14.99 21.656 14.975 22.982 14.975 23.386C14.975 23.715 15.191 24.098 15.8 23.977C20.565 22.347 24 17.738 24 12.305C24 5.508 18.627 0 12 0C5.373 0 0 5.508 0 12.305Z"
+        fill="currentColor"
+    />
+</svg>                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/laravelphp" target="_blank" title="Laravel on X" class="transition duration-100 hover:text-sand-dark-6">
+                            <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M13.969 10.1571L22.7069 0H20.6363L13.0491 8.81931L6.9893 0H0L9.16366 13.3364L0 23.9877H2.07073L10.083 14.6742L16.4826 23.9877H23.4719L13.9684 10.1571H13.969ZM11.1328 13.4538L10.2043 12.1258L2.81684 1.55881H5.99736L11.9592 10.0867L12.8876 11.4147L20.6373 22.4998H17.4567L11.1328 13.4544V13.4538Z"
+        fill="currentColor"
+    />
+</svg>                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@LaravelPHP" target="_blank" title="Laravel on YouTube" class="transition duration-100 hover:text-sand-dark-6">
+                            <svg
+    width="35"
+    height="24"
+    viewBox="0 0 35 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M33.892 3.75519C33.4994 2.27706 32.3428 1.11294 30.8742 0.717875C28.2124 0 17.5385 0 17.5385 0C17.5385 0 6.8648 0 4.20286 0.717875C2.7343 1.113 1.57768 2.27706 1.18511 3.75519C0.471863 6.43437 0.471863 12.0243 0.471863 12.0243C0.471863 12.0243 0.471863 17.6141 1.18511 20.2933C1.57768 21.7714 2.7343 22.8871 4.20286 23.2821C6.8648 24 17.5385 24 17.5385 24C17.5385 24 28.2123 24 30.8742 23.2821C32.3428 22.8871 33.4994 21.7714 33.892 20.2933C34.6052 17.6141 34.6052 12.0243 34.6052 12.0243C34.6052 12.0243 34.6052 6.43437 33.892 3.75519ZM14.0476 17.0994V6.94906L22.9688 12.0244L14.0476 17.0994Z"
+        fill="currentColor"
+    />
+</svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://discord.com/invite/laravel" target="_blank" title="Laravel on Discord" class="transition duration-100 hover:text-sand-dark-6">
+                            <svg
+    width="33"
+    height="24"
+    viewBox="0 0 33 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M27.4296 2.00996C25.3491 1.05745 23.1528 0.381713 20.8966 0C20.5879 0.551901 20.3086 1.11973 20.0598 1.70112C17.6566 1.33898 15.2127 1.33898 12.8095 1.70112C12.5605 1.11979 12.2812 0.551968 11.9726 0C9.71504 0.384937 7.51722 1.06228 5.43462 2.01494C1.30013 8.132 0.179328 14.0971 0.739727 19.9776C3.16099 21.7665 5.87108 23.127 8.75218 24C9.40092 23.1275 9.97497 22.2018 10.4682 21.2329C9.53134 20.883 8.62706 20.4512 7.76588 19.9427C7.99253 19.7783 8.2142 19.609 8.42839 19.4446C10.9342 20.623 13.6692 21.234 16.4384 21.234C19.2075 21.234 21.9425 20.623 24.4483 19.4446C24.665 19.6214 24.8867 19.7908 25.1108 19.9427C24.248 20.4521 23.3421 20.8846 22.4035 21.2354C22.8962 22.2039 23.4702 23.1287 24.1196 24C27.0031 23.1305 29.7153 21.7707 32.137 19.9801C32.7945 13.1606 31.0137 7.25031 27.4296 2.00996ZM11.1781 16.3611C9.61644 16.3611 8.32628 14.944 8.32628 13.2005C8.32628 11.457 9.57161 10.0274 11.1731 10.0274C12.7746 10.0274 14.0548 11.457 14.0274 13.2005C14 14.944 12.7696 16.3611 11.1781 16.3611ZM21.6986 16.3611C20.1345 16.3611 18.8493 14.944 18.8493 13.2005C18.8493 11.457 20.0946 10.0274 21.6986 10.0274C23.3026 10.0274 24.5729 11.457 24.5455 13.2005C24.5181 14.944 23.2902 16.3611 21.6986 16.3611Z"
+        fill="currentColor"
+    />
+</svg>                        </a>
+                    </li>
+                </ul>
+
+                <div>
+                    <ul class="flex justify-start space-x-8">
+                        <li>&copy; 2025 Laravel</li>
+                        <li><a href="https://laravel.com/legal" class="transition duration-100 hover:text-sand-dark-6">Legal</a></li>
+                        <li><a href="https://status.laravel.com/" class="transition duration-100 hover:text-sand-dark-6">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="grid grid-cols-subgrid col-span-12 lg:col-span-9">
+    <div class="grid grid-cols-subgrid mt-14 lg:mt-0 self-start lg:col-span-2 col-span-6 order-2">
+    <h4 class="mb-8 text-base text-sand-light-12 dark:text-sand-dark-12 font-medium lg:col-span-2 col-span-6">
+                            Products
+                        </h4>
+
+                                                                                    <ul class="col-span-6 mb-6 space-y-6 lg:mb-0 lg:col-span-2">
+                                                                            <li>
+                                            <a href="https://cloud.laravel.com" class="transition duration-100 hover:text-sand-dark-6">Cloud</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://forge.laravel.com" class="transition duration-100 hover:text-sand-dark-6">Forge</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://nightwatch.laravel.com" class="transition duration-100 hover:text-sand-dark-6">Nightwatch</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://vapor.laravel.com" class="transition duration-100 hover:text-sand-dark-6">Vapor</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://nova.laravel.com" class="transition duration-100 hover:text-sand-dark-6">Nova</a>
+                                        </li>
+                                                                    </ul>
+</div>
+                                    <div class="grid grid-cols-subgrid mt-14 lg:mt-0 self-start lg:col-span-2 col-span-6 order-3">
+    <h4 class="mb-8 text-base text-sand-light-12 dark:text-sand-dark-12 font-medium lg:col-span-2 col-span-6">
+                            Packages
+                        </h4>
+
+                                                                                    <ul class="col-span-6 mb-6 space-y-6 lg:mb-0 lg:col-span-2">
+                                                                            <li>
+                                            <a href="/docs/cashier" class="transition duration-100 hover:text-sand-dark-6">Cashier</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/dusk" class="transition duration-100 hover:text-sand-dark-6">Dusk</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/horizon" class="transition duration-100 hover:text-sand-dark-6">Horizon</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/octane" class="transition duration-100 hover:text-sand-dark-6">Octane</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/scout" class="transition duration-100 hover:text-sand-dark-6">Scout</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/pennant" class="transition duration-100 hover:text-sand-dark-6">Pennant</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/pint" class="transition duration-100 hover:text-sand-dark-6">Pint</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/sail" class="transition duration-100 hover:text-sand-dark-6">Sail</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/sanctum" class="transition duration-100 hover:text-sand-dark-6">Sanctum</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/socialite" class="transition duration-100 hover:text-sand-dark-6">Socialite</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/telescope" class="transition duration-100 hover:text-sand-dark-6">Telescope</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/pulse" class="transition duration-100 hover:text-sand-dark-6">Pulse</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/reverb" class="transition duration-100 hover:text-sand-dark-6">Reverb</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/broadcasting" class="transition duration-100 hover:text-sand-dark-6">Echo</a>
+                                        </li>
+                                                                    </ul>
+</div>
+                                    <div class="grid grid-cols-subgrid mt-14 lg:mt-0 self-start lg:col-span-2 col-span-6 order-1">
+    <h4 class="mb-8 text-base text-sand-light-12 dark:text-sand-dark-12 font-medium lg:col-span-2 col-span-6">
+                            Resources
+                        </h4>
+
+                                                                                    <ul class="col-span-6 mb-6 space-y-6 lg:mb-0 lg:col-span-2">
+                                                                            <li>
+                                            <a href="/docs" class="transition duration-100 hover:text-sand-dark-6">Documentation</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/starter-kits" class="transition duration-100 hover:text-sand-dark-6">Starter Kits</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/docs/releases" class="transition duration-100 hover:text-sand-dark-6">Release Notes</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/blog" class="transition duration-100 hover:text-sand-dark-6">Blog</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://laravel-news.com" class="transition duration-100 hover:text-sand-dark-6">News</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/community" class="transition duration-100 hover:text-sand-dark-6">Community</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://larabelles.com/" class="transition duration-100 hover:text-sand-dark-6">Larabelles</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/learn" class="transition duration-100 hover:text-sand-dark-6">Learn</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://larajobs.com/?partner=5" class="transition duration-100 hover:text-sand-dark-6">Jobs</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="/careers" class="transition duration-100 hover:text-sand-dark-6">Careers</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://trust.laravel.com" class="transition duration-100 hover:text-sand-dark-6">Trust</a>
+                                        </li>
+                                                                    </ul>
+</div>
+                                    <div class="grid grid-cols-subgrid mt-14 lg:mt-0 self-start lg:col-span-2 col-span-6 order-3">
+    <h4 class="mb-8 text-base text-sand-light-12 dark:text-sand-dark-12 font-medium lg:col-span-2 col-span-6">
+                            Partners
+                        </h4>
+
+                                                                                <ul
+                                x-data="{
+                                    partners: JSON.parse('[[\u0022Curotec\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/curotec\u0022],[\u0022Jump24\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/jump24\u0022],[\u0022Active Logic\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/active-logic\u0022],[\u0022Redberry\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/redberry\u0022],[\u0022byte5\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/byte5\u0022],[\u0022Tighten\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/tighten\u0022],[\u0022DevSquad\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/dev-squad\u0022],[\u0022Kirschbaum\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/kirschbaum\u0022],[\u0022Vehikl\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/vehikl\u0022],[\u002264 Robots\u0022,\u0022https:\\\/\\\/partners.laravel.com\\\/partners\\\/64-robots\u0022]]'),
+                                    shuffled: [],
+                                    init() {
+                                        this.shuffled = [...this.partners].sort(() => Math.random() - 0.5);
+                                    }
+                                }"
+                                class="col-span-6 mb-6 space-y-6 lg:mb-0 lg:col-span-2"
+                            >
+                                <template x-for="partner in shuffled" :key="partner[1]">
+                                    <li>
+                                        <a :href="partner[1]" class="transition duration-100 hover:text-sand-dark-6" x-text="partner[0]"></a>
+                                    </li>
+                                </template>
+                                <li>
+                                    <a href="https://partners.laravel.com" class="transition duration-100 hover:text-sand-dark-6">More Partners</a>
+                                </li>
+                            </ul>
+</div>
+</div>
+
+            <div class="col-span-12 text-sand-light-1">
+                                    <svg class="w-full h-full text-laravel-red"
+    width="1280"
+    height="308"
+    viewBox="0 0 1280 308"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M50.2753 0H0V308.689H144.713V263.27H50.2753V0Z"
+        fill="currentColor"
+    />
+    <path
+        d="M322.209 130.973C315.796 120.684 306.688 112.602 294.883 106.718C283.081 100.84 271.201 97.8969 259.253 97.8969C243.798 97.8969 229.665 100.764 216.843 106.496C204.014 112.228 193.015 120.099 183.834 130.091C174.654 140.088 167.51 151.628 162.412 164.706C157.308 177.792 154.761 191.54 154.761 205.94C154.761 220.645 157.308 234.457 162.412 247.39C167.508 260.332 174.652 271.796 183.834 281.788C193.015 291.785 204.017 299.647 216.843 305.379C229.665 311.111 243.798 313.978 259.253 313.978C271.201 313.978 283.081 311.038 294.883 305.159C306.688 299.282 315.796 291.197 322.209 280.904V308.685H369.865V103.186H322.209V130.973ZM317.837 231.076C314.922 239.016 310.841 245.925 305.598 251.804C300.35 257.687 294.009 262.389 286.579 265.917C279.146 269.445 270.905 271.208 261.875 271.208C252.837 271.208 244.676 269.445 237.391 265.917C230.104 262.389 223.839 257.687 218.593 251.804C213.345 245.925 209.335 239.016 206.57 231.076C203.794 223.138 202.417 214.759 202.417 205.942C202.417 197.12 203.794 188.742 206.57 180.804C209.335 172.866 213.345 165.961 218.593 160.078C223.839 154.201 230.102 149.493 237.391 145.965C244.676 142.437 252.837 140.674 261.875 140.674C270.908 140.674 279.146 142.437 286.579 145.965C294.009 149.493 300.35 154.199 305.598 160.078C310.844 165.961 314.922 172.866 317.837 180.804C320.748 188.742 322.209 197.12 322.209 205.942C322.209 214.759 320.748 223.138 317.837 231.076Z"
+        fill="currentColor"
+    />
+    <path
+        d="M709.568 130.973C703.155 120.684 694.047 112.602 682.242 106.718C670.44 100.84 658.56 97.8969 646.612 97.8969C631.157 97.8969 617.024 100.764 604.202 106.496C591.373 112.228 580.374 120.099 571.193 130.091C562.013 140.088 554.869 151.628 549.771 164.706C544.666 177.792 542.12 191.54 542.12 205.94C542.12 220.645 544.666 234.457 549.771 247.39C554.867 260.332 562.01 271.796 571.193 281.788C580.374 291.785 591.375 299.647 604.202 305.379C617.024 311.111 631.157 313.978 646.612 313.978C658.56 313.978 670.44 311.038 682.242 305.159C694.047 299.282 703.155 291.197 709.568 280.904V308.685H757.224V103.186H709.568V130.973ZM705.198 231.076C702.283 239.016 698.202 245.925 692.959 251.804C687.711 257.687 681.37 262.389 673.94 265.917C666.507 269.445 658.266 271.208 649.236 271.208C640.198 271.208 632.037 269.445 624.752 265.917C617.465 262.389 611.2 257.687 605.954 251.804C600.706 245.925 596.696 239.016 593.931 231.076C591.155 223.138 589.778 214.759 589.778 205.942C589.778 197.12 591.155 188.742 593.931 180.804C596.696 172.866 600.706 165.961 605.954 160.078C611.2 154.201 617.463 149.493 624.752 145.965C632.037 142.437 640.198 140.674 649.236 140.674C658.269 140.674 666.507 142.437 673.94 145.965C681.37 149.493 687.711 154.199 692.959 160.078C698.205 165.961 702.283 172.866 705.198 180.804C708.109 188.742 709.57 197.12 709.57 205.942C709.568 214.759 708.107 223.138 705.198 231.076Z"
+        fill="currentColor"
+    />
+    <path
+        d="M1280 1.12315e-05H1232.35V308.689H1280V1.12315e-05Z"
+        fill="currentColor"
+    />
+    <path
+        d="M407.466 308.689H455.117V150.486H536.876V103.192H407.466V308.689Z"
+        fill="currentColor"
+    />
+    <path
+        d="M948.281 103.192L888.386 260.557L828.489 103.192H780.224L858.441 308.689H918.331L996.546 103.192H948.281Z"
+        fill="currentColor"
+    />
+    <path
+        d="M1100.48 97.908C1042.13 97.908 995.937 146.279 995.937 205.944C995.937 271.9 1040.64 313.98 1106.59 313.98C1143.5 313.98 1167.06 299.745 1195.85 268.746L1163.66 243.621C1163.64 243.646 1139.36 275.802 1103.1 275.802C1060.96 275.802 1043.22 241.533 1043.22 223.803H1201.32C1209.62 155.913 1165.37 97.908 1100.48 97.908ZM1043.35 188.085C1043.71 184.13 1049.2 136.086 1100.1 136.086C1151.01 136.086 1157.19 184.123 1157.55 188.085H1043.35Z"
+        fill="currentColor"
+    />
+</svg>                            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- HubSpot -->
+        
+
+        
+        <script type="text/javascript">
+            !function(){"use strict";window.RudderSnippetVersion="3.0.60";var e="rudderanalytics";window[e]||(window[e]=[])
+            ;var rudderanalytics=window[e];if(Array.isArray(rudderanalytics)){
+            if(true===rudderanalytics.snippetExecuted&&window.console&&console.error){
+            console.error("RudderStack JavaScript SDK snippet included more than once.")}else{rudderanalytics.snippetExecuted=true,
+            window.rudderAnalyticsBuildType="legacy";var sdkBaseUrl="https://cdn.rudderlabs.com";var sdkVersion="v3"
+            ;var sdkFileName="rsa.min.js";var scriptLoadingMode="async"
+            ;var r=["setDefaultInstanceKey","load","ready","page","track","identify","alias","group","reset","setAnonymousId","startSession","endSession","consent"]
+            ;for(var n=0;n<r.length;n++){var t=r[n];rudderanalytics[t]=function(r){return function(){var n
+            ;Array.isArray(window[e])?rudderanalytics.push([r].concat(Array.prototype.slice.call(arguments))):null===(n=window[e][r])||void 0===n||n.apply(window[e],arguments)
+            }}(t)}try{
+            new Function('class Test{field=()=>{};test({prop=[]}={}){return prop?(prop?.property??[...prop]):import("");}}'),
+            window.rudderAnalyticsBuildType="modern"}catch(i){}var d=document.head||document.getElementsByTagName("head")[0]
+            ;var o=document.body||document.getElementsByTagName("body")[0];window.rudderAnalyticsAddScript=function(e,r,n){
+            var t=document.createElement("script");t.src=e,t.setAttribute("data-loader","RS_JS_SDK"),r&&n&&t.setAttribute(r,n),
+            "async"===scriptLoadingMode?t.async=true:"defer"===scriptLoadingMode&&(t.defer=true),
+            d?d.insertBefore(t,d.firstChild):o.insertBefore(t,o.firstChild)},window.rudderAnalyticsMount=function(){!function(){
+            if("undefined"==typeof globalThis){var e;var r=function getGlobal(){
+            return"undefined"!=typeof self?self:"undefined"!=typeof window?window:null}();r&&Object.defineProperty(r,"globalThis",{
+            value:r,configurable:true})}
+            }(),window.rudderAnalyticsAddScript("".concat(sdkBaseUrl,"/").concat(sdkVersion,"/").concat(window.rudderAnalyticsBuildType,"/").concat(sdkFileName),"data-rsa-write-key","2w8mFiDWValXyby6yHwgkH3Pb8X")
+            },
+            "undefined"==typeof Promise||"undefined"==typeof globalThis?window.rudderAnalyticsAddScript("https://polyfill-fastly.io/v3/polyfill.min.js?version=3.111.0&features=Symbol%2CPromise&callback=rudderAnalyticsMount"):window.rudderAnalyticsMount()
+            ;var loadOptions={};rudderanalytics.load("2w8mFiDWValXyby6yHwgkH3Pb8X","https://laraveltrxdkoq.dataplane.rudderstack.com",loadOptions)}}}();
+        </script>
+        <script>
+            if (typeof rudderanalytics !== 'undefined') {
+                rudderanalytics.page();
+            }
+        </script>
+
+            <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f070bd7bc3687a',t:'MTc2MDU0MzA5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

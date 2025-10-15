@@ -1,0 +1,7 @@
+[tool.ruff]
+# Enable Pyflakes, pycodestyle, and isort rules.
+select = ["E", "F", "I"]
+line-length = 88
+
+[tool.ruff.format]
+quote-style = "double"
