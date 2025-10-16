@@ -1,7 +1,7 @@
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
-VECTOR_STORE_PATH = "faiss_index"
+from src.core.config import VECTOR_STORE_PATH
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 class RAGService:
@@ -11,14 +11,20 @@ class RAGService:
         """
         print("Loading RAG service...")
         model_kwargs = {'device': 'cpu'}
-        self.embeddings = HuggingFaceEmbeddings(model_name=MODEL_NAME, model_kwargs=model_kwargs)
-        
+        self.embeddings = HuggingFaceEmbeddings(
+            model_name=MODEL_NAME, model_kwargs=model_kwargs
+        )
+
         try:
-            self.vector_store = FAISS.load_local(VECTOR_STORE_PATH, self.embeddings, allow_dangerous_deserialization=True)
+            self.vector_store = FAISS.load_local(
+                VECTOR_STORE_PATH, self.embeddings, allow_dangerous_deserialization=True
+            )
             print("FAISS vector store loaded successfully.")
         except Exception as e:
             print(f"Error loading FAISS index: {e}")
-            print("Please ensure you have run the `scripts/ingest_docs.py` script first.")
+            print(
+                "Please ensure you have run the `scripts/ingest_docs.py` script first."
+            )
             self.vector_store = None
 
     def find_relevant_documents(self, query: str, k: int = 5):

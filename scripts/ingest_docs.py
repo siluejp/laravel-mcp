@@ -7,7 +7,13 @@ from langchain_community.vectorstores import FAISS
 
 # The base URL for the Laravel 5.6 documentation
 BASE_URL = "https://laravel.com/docs/5.6"
-VECTOR_STORE_PATH = "faiss_index"
+import sys
+import os
+
+# Add project root to path to allow importing from src
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.core.config import VECTOR_STORE_PATH
 
 def get_all_doc_links(url):
     """

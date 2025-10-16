@@ -1,13 +1,14 @@
-import unittest
-from unittest.mock import patch, MagicMock
-import sys
 import os
+import sys
+import unittest
+from unittest.mock import MagicMock, patch
 
 # Add the project root to the Python path to allow imports from 'src'
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import the tool directly
 from src.tools.laravel_assistant import laravel_5_6_assistant
+
 
 class TestLaravelAssistant(unittest.TestCase):
 
@@ -25,7 +26,7 @@ class TestLaravelAssistant(unittest.TestCase):
         mock_session_local.return_value = mock_db_session
         
         # Act
-        response = laravel_5_6_assistant(query="test query")
+        response = laravel_5_6_assistant.fn(query="test query")
         
         # Assert
         self.assertEqual(response, "This is the AI response.")
@@ -39,7 +40,7 @@ class TestLaravelAssistant(unittest.TestCase):
         Test that the tool returns an error for an empty query.
         """
         # Act
-        response = laravel_5_6_assistant(query="")
+        response = laravel_5_6_assistant.fn(query="")
         
         # Assert
         self.assertEqual(response, "Please provide a query.")
@@ -50,10 +51,14 @@ class TestLaravelAssistant(unittest.TestCase):
         Test that the tool returns an error if the OpenAI API key is not set.
         """
         # Act
-        response = laravel_5_6_assistant(query="test query")
+        response = laravel_5_6_assistant.fn(query="test query")
         
         # Assert
-        self.assertEqual(response, "Error: The AI model is not configured on the server. Please set the OPENAI_API_KEY.")
+        expected_error = (
+            "Error: The AI model is not configured on the server. "
+            "Please set the OPENAI_API_KEY."
+        )
+        self.assertEqual(response, expected_error)
 
 if __name__ == '__main__':
     unittest.main()
